@@ -34,7 +34,25 @@ var round_count = 0;
 var my_count = 0;
 var comp_count = 0;
 
-function game(){
+
+var comp = getComputerChoice(); 
+
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll('button');
+
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+        var round = playRound(button.id, comp);
+        alert(round);
+        console.log(round);
+        //console.log(typeof(button.id));
+    });
+});
+
+    /*
+    function game(){
     for (let count = 0; count < 5; count++) {
         var player =  prompt("Rock, paper or scissors: ");  
         var comp = getComputerChoice(); // needed; re-loop this
@@ -61,6 +79,7 @@ function game(){
     else{
         console.log("You loose!");
     }
-}
+    */
+//}
 
-let new_round = game();
+//let new_round = game();
