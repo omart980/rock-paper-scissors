@@ -5,6 +5,7 @@ function getComputerChoice(){
     var random_select = selection[Math.floor(Math.random()*selection.length)];
     //console.log(random_select);
     return random_select; // you need this to have this as string
+    //random comment
 }
 var round_count = 0;
 var my_count = 0;
