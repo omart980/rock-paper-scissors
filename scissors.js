@@ -1,85 +1,123 @@
+/*Comp. generates random select.
+*/
 function getComputerChoice(){
     var selection = ['Rock', 'Paper', 'Scissor'];
     var random_select = selection[Math.floor(Math.random()*selection.length)];
     //console.log(random_select);
     return random_select; // you need this to have this as string
 }
-
-function playRound(playerSelection, computerSelection){
-    if( (playerSelection == "rock") && (computerSelection == "Paper")){
-        return "You Lose! Paper beats Rock";
-    }
-    else if((playerSelection == "paper") && (computerSelection == "Scissor")){
-        return "You Lose! Scissors beats paper";
-    }
-    else if ((playerSelection == "scissors") && (computerSelection == "Rock")){
-        return "You Lose! Rock beats scissors";
-    }
-    //end of computer turn
-    else if((playerSelection == "paper") && (computerSelection == "Rock")){
-        return "You Win! Paper beats Rock";
-    }
-    else if((playerSelection == "scissors") && (computerSelection == "Paper")){
-        return "You Win! Scissors beats paper";
-    }
-    else if ((playerSelection == "rock") && (computerSelection == "Scissor")){
-        return "You Win! Rock beats scissors";
-    }
-    else {
-        return "This is a tie!";
-    }
-}
-
 var round_count = 0;
 var my_count = 0;
 var comp_count = 0;
+document.getElementById('player').innerHTML = "My Score: " + my_count;
+document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
+document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
 
-
-var comp = getComputerChoice(); 
-
-// buttons is a node list. It looks and acts much like an array.
-const buttons = document.querySelectorAll('button');
-
-// we use the .forEach method to iterate through each button
-buttons.forEach((button) => {
-    // and for each one we add a 'click' listener
-    button.addEventListener('click', () => {
-        var round = playRound(button.id, comp);
-        alert(round);
-        console.log(round);
-        //console.log(typeof(button.id));
-    });
-});
-
-    /*
-    function game(){
-    for (let count = 0; count < 5; count++) {
-        var player =  prompt("Rock, paper or scissors: ");  
-        var comp = getComputerChoice(); // needed; re-loop this
-        var rounds = playRound(player, comp);
-        var str_contain = rounds.indexOf("Win!");
-
-        if(str_contain > -1 ){
-            my_count++;
+function playRound(playerSelection, computerSelection){
+    console.log(playerSelection);
+    console.log(computerSelection);
+    if( (playerSelection == "rock") && (computerSelection == "Paper")){
+        round_count++;
+        comp_count++;
+        document.getElementById('player').innerHTML = "My Score: " + my_count;
+        document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
+        if(comp_count == 5){
+            alert("You lost against the computer!");
         }
         else{
-            comp_count++;
+            console.log("Keep playing")
         }
-
+    }
+    else if((playerSelection == "paper") && (computerSelection == "Scissor")){
         round_count++;
+        comp_count++;
+        document.getElementById('player').innerHTML = "My Score: " + my_count;
+        document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
+        if(comp_count == 5){
+            alert("You lost against the computer!");
+        }
+        else{
+            console.log("Keep playing")
+        }
     }
-
-    console.log("My score:" + my_count);
-    console.log("Computer score:" + comp_count);
-    console.log("Rounds:" + round_count);
-
-    if(my_count > comp_count){
-        console.log("You win!");
+    else if ((playerSelection == "scissor") && (computerSelection == "Rock")){
+        round_count++;
+        comp_count++;
+        document.getElementById('player').innerHTML = "My Score: " + my_count;
+        document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
+        if(comp_count == 5){
+            alert("You lost against the computer!");
+        }
+        else{
+            console.log("Keep playing")
+        }
     }
-    else{
-        console.log("You loose!");
+    //end of computer turn
+    else if((playerSelection == "paper") && (computerSelection == "Rock")){
+        round_count++;
+        my_count++;
+        document.getElementById('player').innerHTML = "My Score: " + my_count;
+        document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
+        if(my_count == 5){
+            alert("YOU WON!");
+        }
+        else{
+            console.log("Keep playing")
+        }
     }
-    */
-//}
+    else if((playerSelection == "scissor") && (computerSelection == "Paper")){
+        round_count++;
+        my_count++;
+        document.getElementById('player').innerHTML = "My Score: " + my_count;
+        document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
+        if(my_count == 5){
+            alert("YOU WON!");
+        }
+        else{
+            console.log("Keep playing")
+        }
+    }
+    else if ((playerSelection == "rock") && (computerSelection == "Scissor")){
+        round_count++;
+        my_count++;
+        document.getElementById('player').innerHTML = "My Score: " + my_count;
+        document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
+        if(my_count == 5){
+            alert("YOU WON!");
+        }
+        else{
+            console.log("Keep playing")
+        }
+    }
+    else {
+        round_count++;
+        document.getElementById('player').innerHTML = "My Score: " + my_count;
+        document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
+        return "This is a tie! No points and try again";
+        
+    }
+    
+}
 
-//let new_round = game();
+function game_start(){
+    // buttons is a node list. It looks and acts much like an array.
+    const buttons = document.querySelectorAll('button');
+
+    // we use the .forEach method to iterate through each button
+    buttons.forEach((button) => {
+    // and for each one we add a 'click' listener
+        button.addEventListener('click', () => {
+        var comp = getComputerChoice();
+        var round = playRound(button.id, comp);
+        });
+    });
+}
+
+let new_round = game_start();
