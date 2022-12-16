@@ -5,26 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors game</title>
-    
+    <link rel="stylesheet" href="paper.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&family=Rubik+Bubbles&family=Rubik+Puddles&display=swap" rel="stylesheet">
 </head>
 <body>
+    <h1>Welcome to the R.P.S game!</h1>
+    <p>Instructions: Please select Rock, Paper, or Scissors. It is you against the computer!</p>
+
     <div class="results">
-        <button id="rock">rock</button>
-        <button id="paper">paper</button>
-        <button id="scissor">scissor</button>
+        <button id="player_rock"></button>
+        <button id="player_paper"></button>
+        <button id="player_scissors"></button>
     </div>
 
     <div class="results">
-        <div id="rounds">
-
-        </div>
-        <div id="player">
-        </div>
-        <div id="computer">
-            <!--<h1>Computer Score: <script>onclick="playRound(playerSelection, computerSelection)"</script></h1>-->
-        </div>
+        <div id="rounds"></div>
+        <div id="player"></div>
+        <div id="computer"></div>
     </div>
-    <script type= "text/javascript" src="scissors.js">
-    </script>
+    <script type= "text/javascript" src="scissors.js"></script>
 </body>
 </html>

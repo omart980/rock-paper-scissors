@@ -1,110 +1,111 @@
-/*Comp. generates random select.
-*/
-function getComputerChoice(){
-    var selection = ['Rock', 'Paper', 'Scissor'];
-    var random_select = selection[Math.floor(Math.random()*selection.length)];
-    //console.log(random_select);
-    return random_select; // you need this to have this as string
-    //random comment
-}
 var round_count = 0;
 var my_count = 0;
 var comp_count = 0;
+
+document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
 document.getElementById('player').innerHTML = "My Score: " + my_count;
 document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
-document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
 
+
+/*Comp. generates random select.
+*/
+function getComputerChoice(){
+    var selection = ['Computer: Rock', 'Computer: Paper', 'Computer: Scissors'];
+    var random_select = selection[Math.floor(Math.random()*selection.length)];
+    return random_select; // you need this to have this as string
+}
+
+/*Plays rounds with player vs computer; keeps track*/
 function playRound(playerSelection, computerSelection){
     console.log(playerSelection);
     console.log(computerSelection);
-    if( (playerSelection == "rock") && (computerSelection == "Paper")){
+    if( (playerSelection == "player_rock") && (computerSelection == "Computer: Paper")){
         round_count++;
         comp_count++;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         document.getElementById('player').innerHTML = "My Score: " + my_count;
         document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
-        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         if(comp_count == 5){
             alert("You lost against the computer!");
         }
         else{
-            console.log("Keep playing")
+            console.log("Computer point. Keep playing")
         }
     }
-    else if((playerSelection == "paper") && (computerSelection == "Scissor")){
+    else if((playerSelection == "player_paper") && (computerSelection == "Computer: Scissors")){
         round_count++;
         comp_count++;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         document.getElementById('player').innerHTML = "My Score: " + my_count;
         document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
-        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         if(comp_count == 5){
             alert("You lost against the computer!");
         }
         else{
-            console.log("Keep playing")
+            console.log("Computer point. Keep playing")
         }
     }
-    else if ((playerSelection == "scissor") && (computerSelection == "Rock")){
+    else if ((playerSelection == "player_scissors") && (computerSelection == "Computer: Rock")){
         round_count++;
         comp_count++;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         document.getElementById('player').innerHTML = "My Score: " + my_count;
         document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
-        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         if(comp_count == 5){
             alert("You lost against the computer!");
         }
         else{
-            console.log("Keep playing")
+            console.log("Computer point. Keep playing")
         }
     }
     //end of computer turn
-    else if((playerSelection == "paper") && (computerSelection == "Rock")){
+    else if((playerSelection == "player_paper") && (computerSelection == "Computer: Rock")){
         round_count++;
         my_count++;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         document.getElementById('player').innerHTML = "My Score: " + my_count;
         document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
-        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         if(my_count == 5){
             alert("YOU WON!");
         }
         else{
-            console.log("Keep playing")
+            console.log("Player point. Keep playing")
         }
     }
-    else if((playerSelection == "scissor") && (computerSelection == "Paper")){
+    else if((playerSelection == "player_scissors") && (computerSelection == "Computer: Paper")){
         round_count++;
         my_count++;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         document.getElementById('player').innerHTML = "My Score: " + my_count;
         document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
-        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         if(my_count == 5){
             alert("YOU WON!");
         }
         else{
-            console.log("Keep playing")
+            console.log("Player point. Keep playing")
         }
     }
-    else if ((playerSelection == "rock") && (computerSelection == "Scissor")){
+    else if ((playerSelection == "player_rock") && (computerSelection == "Computer: Scissors")){
         round_count++;
         my_count++;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         document.getElementById('player').innerHTML = "My Score: " + my_count;
         document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
-        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         if(my_count == 5){
             alert("YOU WON!");
         }
         else{
-            console.log("Keep playing")
+            console.log("Player point. Keep playing")
         }
     }
     else {
         round_count++;
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         document.getElementById('player').innerHTML = "My Score: " + my_count;
         document.getElementById('computer').innerHTML = "Computer Score: " + comp_count;
-        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
-        return "This is a tie! No points and try again";
-        
+        console.log("A tie! No points")
+       //return "This is a tie! No points and try again";
     }
-    
 }
 
 function game_start(){
@@ -122,3 +123,8 @@ function game_start(){
 }
 
 let new_round = game_start();
+
+/// thigs to check: the logic foor the clicking,
+// edit css, 
+// make more nicer comments, 
+//and some effects for the consoloe log

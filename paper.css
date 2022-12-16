@@ -1,0 +1,70 @@
+body{
+    background-color: #6d949c;
+}
+
+h1 {
+    font-family: 'Rubik Puddles', cursive;
+    color: #ffe6e6;
+    font-size: 60px;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    font-family: 'Monotype Corsiva','Apple Chancery','ITC Zapf Chancery','URW Chancery L', cursive;
+    color: #ffffcc;
+}
+
+.results{
+    text-align: center;
+}
+/*
+button{
+    padding: 0;
+    margin: 0;
+    width: 250px;
+    height: 80px;
+    text-align: center;
+    top: 300px;
+    left: 400px;
+    position: relative;
+    border: 3px solid #555;
+    border-radius: 5px;
+    transition-duration: .60s;
+}
+
+button:hover{
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
+    transform: scale(.95);
+}
+*/
+
+button{
+    width: 80px;
+    height: 80px;
+}
+
+#player_rock{
+    /*box-shadow: 0 30px 60px rgba(0, 0, 0, .5);*/
+    background: url(/Users/shu/Desktop/repos/rock-paper-scissors/images/Rock-Clipart-Free-Pictures.png);
+    background-size: cover;
+    height: 100px;
+}
+
+#player_paper{
+    /*box-shadow: 0 30px 60px rgba(0, 0, 0, .5);*/
+    background: url(/Users/shu/Desktop/repos/rock-paper-scissors/images/paper.png);
+    background-size: cover;
+    height: 100px;
+}
+
+#player_scissors{
+    /*box-shadow: 0 30px 60px rgba(0, 0, 0, .5);*/
+    background: url(/Users/shu/Desktop/repos/rock-paper-scissors/images/black-scissors-cartoon-object-vector.webp);
+    background-size: cover;
+    height: 100px;
+}
+
+
+
+
