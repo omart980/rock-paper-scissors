@@ -128,4 +128,5 @@ let new_round = game_start();
 - reset the game when rounds end
 - Have an aniimation of who won after each round
 - choosing rounds?
+- Notify who picks what 
 */
