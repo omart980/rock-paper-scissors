@@ -124,7 +124,8 @@ function game_start(){
 
 let new_round = game_start();
 
-/// thigs to check: the logic foor the clicking,
-// edit css, 
-// make more nicer comments, 
-//and some effects for the consoloe log
+/*CHALLENGES TO ADD ON
+- reset the game when rounds end
+- Have an aniimation of who won after each round
+- choosing rounds?
+*/
