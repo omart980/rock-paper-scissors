@@ -1,10 +1,23 @@
 var round_count = 0;
-var my_count = 0;
+var player_count = 0;
 var comp_count = 0;
+const final_result = document.querySelector(".end");
 
 document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
-document.getElementById('player_score').innerHTML = "My Score: " + my_count;
+document.getElementById('player_score').innerHTML = "My Score: " + player_count;
 document.getElementById('computer_score').innerHTML = "Computer Score: " + comp_count;
+
+gameStart();
+
+function gameStart(){
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            var comp = getComputerChoice();
+            var round = playRound(button.id, comp);
+        });
+    });
+}
 
 function getComputerChoice(){
     var selection = ['Computer: Rock', 'Computer: Paper', 'Computer: Scissors'];
@@ -21,7 +34,7 @@ function playRound(playerSelection, computerSelection){
         document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         document.getElementById('computer_score').innerHTML = "Computer Score: " + comp_count;
         if(comp_count == 5){
-            alert("You lost against the computer!");
+            game_end();
         }
         else{
             console.log("Computer point. Keep playing")
@@ -33,7 +46,7 @@ function playRound(playerSelection, computerSelection){
         document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         document.getElementById('computer_score').innerHTML = "Computer Score: " + comp_count;
         if(comp_count == 5){
-            alert("You lost against the computer!");
+            game_end();
         }
         else{
             console.log("Computer point. Keep playing")
@@ -45,7 +58,7 @@ function playRound(playerSelection, computerSelection){
         document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
         document.getElementById('computer_score').innerHTML = "Computer Score: " + comp_count;
         if(comp_count == 5){
-            alert("You lost against the computer!");
+            game_end();
         }
         else{
             console.log("Computer point. Keep playing")
@@ -53,11 +66,11 @@ function playRound(playerSelection, computerSelection){
     }
     else if((playerSelection == "player_paper") && (computerSelection == "Computer: Rock")){
         round_count++;
-        my_count++;
+        player_count++;
         document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
-        document.getElementById('player_score').innerHTML = "My Score: " + my_count;
-        if(my_count == 5){
-            alert("YOU WON!");
+        document.getElementById('player_score').innerHTML = "My Score: " + player_count;
+        if(player_count == 5){
+            game_end();
         }
         else{
             console.log("Player point. Keep playing")
@@ -65,11 +78,11 @@ function playRound(playerSelection, computerSelection){
     }
     else if((playerSelection == "player_scissors") && (computerSelection == "Computer: Paper")){
         round_count++;
-        my_count++;
+        player_count++;
         document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
-        document.getElementById('player_score').innerHTML = "My Score: " + my_count;
-        if(my_count == 5){
-            alert("YOU WON!");
+        document.getElementById('player_score').innerHTML = "My Score: " + player_count;
+        if(player_count == 5){
+            game_end();
         }
         else{
             console.log("Player point. Keep playing")
@@ -77,11 +90,11 @@ function playRound(playerSelection, computerSelection){
     }
     else if ((playerSelection == "player_rock") && (computerSelection == "Computer: Scissors")){
         round_count++;
-        my_count++;
+        player_count++;
         document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
-        document.getElementById('player_score').innerHTML = "My Score: " + my_count;
-        if(my_count == 5){
-            alert("YOU WON!");
+        document.getElementById('player_score').innerHTML = "My Score: " + player_count;
+        if(player_count == 5){
+            game_end();
         }
         else{
             console.log("Player point. Keep playing")
@@ -89,25 +102,41 @@ function playRound(playerSelection, computerSelection){
     }
     else {
         round_count++;
-        console.log("A tie! No points")
+        document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
+        if(player_count == 5 || comp_count == 5 ){
+            game_end();
+        }
+        else{
+            console.log("A tie! No points")
+        }
     }
 }
 
-function game_start(){
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-            var comp = getComputerChoice();
-            var round = playRound(button.id, comp);
-        });
-    });
+function game_end(){
+    if(player_count == 5){
+        final_result.innerHTML='Game over, you win! <button onclick="newGame()">Click here to play again</button>';
+    }
+    else{
+        final_result.innerHTML='Game over, you lost! <button onclick="newGame()">Click here to play again</button>';
+    }
+    player_rock.setAttribute("disabled", 1);
+    player_paper.setAttribute("disabled", 1);
+    player_scissors.setAttribute("disabled", 1);
 }
 
-let new_round = game_start();
+function newGame(){
+    var new_round_count = 0;
+    var new_player_count = 0;
+    var new_comp_count = 0;
 
-/*CHALLENGES TO ADD ON
-- reset the game when rounds end
-- Have an aniimation of who won after each round
-- choosing rounds?
-- Notify who picks what 
-*/
+    document.getElementById('rounds').innerHTML = "Round Count: " + new_round_count;
+    document.getElementById('player_score').innerHTML = "My Score: " + new_player_count;
+    document.getElementById('computer_score').innerHTML = "Computer Score: " + new_comp_count;
+ 
+    final_result.innerHTML = ``;
+    player_rock.removeAttribute("disabled");
+    player_paper.removeAttribute("disabled");
+    player_scissors.removeAttribute("disabled");
+}
+
+
