@@ -125,13 +125,17 @@ function game_end(){
 }
 
 function newGame(){
-    var new_round_count = 0;
-    var new_player_count = 0;
-    var new_comp_count = 0;
+    let new_round_count = 0;
+    let new_player_count = 0;
+    let new_comp_count = 0;
 
-    document.getElementById('rounds').innerHTML = "Round Count: " + new_round_count;
-    document.getElementById('player_score').innerHTML = "My Score: " + new_player_count;
-    document.getElementById('computer_score').innerHTML = "Computer Score: " + new_comp_count;
+    round_count = new_round_count;
+    player_count = new_player_count;
+    comp_count = new_comp_count;
+
+    document.getElementById('rounds').innerHTML = "Round Count: " + round_count;
+    document.getElementById('player_score').innerHTML = "My Score: " + player_count;
+    document.getElementById('computer_score').innerHTML = "Computer Score: " + comp_count;
  
     final_result.innerHTML = ``;
     player_rock.removeAttribute("disabled");
