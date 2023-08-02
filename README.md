@@ -7,7 +7,7 @@ Ready or not, it is up to you against the computer to see who will win a classic
 
 ### Instructions
 
-- Fork this repository
+- Fork this repository!
 - Clone your forked repository
 - Add your scripts
 - Commit and push
