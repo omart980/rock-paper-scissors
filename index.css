@@ -36,19 +36,19 @@ button:hover{
 }
 
 #player_rock{
-    background: url(/Users/shu/Desktop/repos/rock-paper-scissors/images/Rock-Clipart-Free-Pictures.png);
+    background: url("../images/rock.png");
     background-size: cover;
     height: 100px;
 }
 
 #player_paper{
-    background: url(/Users/shu/Desktop/repos/rock-paper-scissors/images/paper.png);
+    background: url("../images/paper.png");
     background-size: cover;
     height: 100px;
 }
 
 #player_scissors{
-    background: url(/Users/shu/Desktop/repos/rock-paper-scissors/images/black-scissors-cartoon-object-vector.webp);
+    background: url("../images/scissors.webp");
     background-size: cover;
     height: 100px;
 }
