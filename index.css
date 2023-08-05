@@ -36,22 +36,23 @@ button:hover{
 }
 
 #player_rock{
-    background: url("../images/rock.png");
+    background: url("images/rock.png");
     background-size: cover;
     height: 100px;
 }
 
 #player_paper{
-    background: url("../images/paper.png");
+    background: url("images/paper.png");
     background-size: cover;
     height: 100px;
 }
 
-#player_scissors{
-    background: url("../images/scissors.webp");
+#player_scissors {
+    background: url("images/scissors.webp");
     background-size: cover;
+    background-position: center; 
     height: 100px;
-}
+  }
 
 /*Round and Score texts*/
 
